@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy: #06060f;
+  --navy-mid: #0d0d20;
+  --navy-light: #161630;
+  --steel: #1e1e4a;
+  --chrome: #dddaff;
+  --chrome-hi: #f0eeff;
+  --silver: #9b96d4;
+  --blue-glow: #5c4be2;
+  --accent: #5c4be2;
+  --accent-hi: #7b6ef0;
+  --white: #f5f3ff;
+  --gold: #c4b5ff;
+  --panel: #0a0a1e;
+  --border: rgba(92, 75, 226, 0.2);
+  --border-hi: rgba(92, 75, 226, 0.45);
+}
