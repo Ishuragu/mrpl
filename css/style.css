@@ -5,7 +5,7 @@ html {
 body {
   font-family: "Barlow", sans-serif;
   background: var(--navy);
-  color: var(--white);
+  color: var(--dirty-white);
   overflow-x: hidden;
 }
 
@@ -15,7 +15,7 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.25;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
@@ -44,7 +44,7 @@ nav {
   justify-content: space-between;
   padding: 0 48px;
   height: 72px;
-  background: rgba(10, 20, 42, 0.94);
+  background: var(--white);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: height 0.3s;
@@ -108,7 +108,7 @@ nav::after {
 }
 
 .nav-links a {
-  color: var(--silver);
+  color: var(--steel);
   text-decoration: none;
   font-size: 12px;
   letter-spacing: 2px;
@@ -130,11 +130,13 @@ nav::after {
   transition: transform 0.2s;
   transform-origin: left;
 }
-
-.nav-links a:hover {
-  color: var(--accent-hi);
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
 }
-.nav-links a:hover::after {
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
   transform: scaleX(1);
 }
 
@@ -234,6 +236,7 @@ nav::after {
   position: relative;
   overflow: hidden;
   padding: 100px 48px 80px;
+  background: linear-gradient(135deg, #f8fbff 0%, #e0f2fe 100%);
 }
 
 .hero-bp {
@@ -1046,7 +1049,7 @@ section {
 }
 
 .industry-card {
-  background: rgba(10, 20, 42, 0.8);
+  background: #fff;
   border: 1px solid var(--border);
   padding: 26px 22px;
   display: flex;
@@ -1061,6 +1064,9 @@ section {
 .industry-card:hover {
   border-color: var(--accent);
   background: rgba(14, 30, 56, 0.9);
+  .industry-name {
+    color: #fff;
+  }
 }
 
 .industry-icon {
@@ -1245,7 +1251,7 @@ section {
 .form-textarea {
   background: var(--navy);
   border: 1px solid var(--border);
-  color: var(--white);
+  color: var(--dirty-white);
   padding: 13px 16px;
   font-family: "Barlow", sans-serif;
   font-size: 14px;
