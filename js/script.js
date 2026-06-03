@@ -37,6 +37,84 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+// Gallery Section
+
+const categoryLabels = {
+  site: "Project Sites",
+  steel: "Steel Fabrication",
+  roofing: "Roofing",
+  products: "Products",
+  machines: "Machines",
+  industry: "Industrial Works",
+  videos: "Videos",
+};
+
+const galleryTabs = document.getElementById("galleryTabs");
+const galleryGrid = document.getElementById("galleryGrid");
+const categories = [...new Set(galleryItems.map((item) => item.category))];
+
+galleryTabs.innerHTML = `
+<button
+class="gallery-tab active"
+data-category="all">
+All
+</button>
+`;
+
+categories.forEach((category) => {
+  galleryTabs.innerHTML += `
+    <button
+      class="gallery-tab"
+      data-category="${category}">
+      ${categoryLabels[category]}
+    </button>
+    `;
+});
+
+function renderGallery(category = "all") {
+  galleryGrid.innerHTML = "";
+
+  const filteredItems =
+    category === "all"
+      ? galleryItems
+      : galleryItems.filter((item) => item.category === category);
+
+  filteredItems.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "gallery-item";
+    if (item.type === "video") {
+      div.innerHTML = `
+            <video controls>
+                <source
+                src="${item.src}"
+                type="video/mp4">
+            </video>
+            `;
+    } else {
+      div.innerHTML = `
+            <img
+              src="${item.src}"
+              alt="${item.category}"
+              loading="lazy">
+            `;
+    }
+    galleryGrid.appendChild(div);
+  });
+}
+
+renderGallery();
+
+galleryTabs.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("gallery-tab")) return;
+
+  document
+    .querySelectorAll(".gallery-tab")
+    .forEach((tab) => tab.classList.remove("active"));
+
+  e.target.classList.add("active");
+
+  renderGallery(e.target.dataset.category);
+});
 
 // Scroll top
 const scrollTopBtn = document.getElementById("scrollTop");
