@@ -833,64 +833,70 @@ section {
 }
 
 /* ===== GALLERY ====*/
-.gallery-section {
-  padding: 100px 0;
-  background: #f8fbff;
+/* ===== GALLERY ===== */
+
+.gallery {
+  background: var(--panel);
+}
+
+.gallery .section-body {
+  margin-bottom: 50px;
 }
 
 .gallery-tabs {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 12px;
-  margin: 50px 0;
+  margin-bottom: 40px;
 }
 
 .gallery-tab {
-  padding: 12px 24px;
-  border-radius: 50px;
-  border: 1px solid #dbeafe;
-  background: #fff;
-  color: #334155;
+  background: var(--navy);
+  border: 1px solid var(--border);
+  color: var(--silver);
+  padding: 12px 22px;
   cursor: pointer;
+  font-size: 12px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
 }
 
 .gallery-tab:hover {
-  background: #eff6ff;
-  border-color: #2563eb;
+  border-color: var(--accent);
+  color: var(--chrome-hi);
 }
 
 .gallery-tab.active {
-  background: #2563eb;
+  background: var(--accent);
   color: white;
-  border-color: #2563eb;
+  border-color: var(--accent);
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
 .gallery-item {
-  background: white;
-  border-radius: 20px;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: 0.3s ease;
+  background: var(--navy);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
 }
 
 .gallery-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-color: var(--accent);
+  transform: translateY(-4px);
 }
 
 .gallery-item img,
 .gallery-item video {
   width: 100%;
-  height: 280px;
+  height: 260px;
   object-fit: cover;
   display: block;
 }
@@ -901,18 +907,27 @@ section {
 }
 
 #loadMoreBtn {
-  background: #2563eb;
+  background: var(--accent);
   color: white;
   border: none;
-  padding: 14px 32px;
-  border-radius: 50px;
+  padding: 14px 34px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 #loadMoreBtn:hover {
+  background: var(--blue-glow);
   transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -923,6 +938,10 @@ section {
   .gallery-item img,
   .gallery-item video {
     height: 220px;
+  }
+
+  .gallery-tabs {
+    justify-content: center;
   }
 }
 /* ===== PROCESS ===== */
