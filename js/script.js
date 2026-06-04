@@ -39,13 +39,21 @@ window.addEventListener("scroll", () => {
 });
 // Gallery Section
 
+let currentCategory = "all";
+let visibleItems = 12;
+const ITEMS_PER_LOAD = 12;
+
 const categoryLabels = {
   site: "Project Sites",
   steel: "Steel Fabrication",
+  fabrication: "Fabrication",
+  work: "Completed Works",
   roofing: "Roofing",
+  sheet: "Metal Sheets",
   products: "Products",
-  machines: "Machines",
+  machine: "Machines",
   industry: "Industrial Works",
+  factory: "Factory",
   videos: "Videos",
 };
 
@@ -72,6 +80,8 @@ categories.forEach((category) => {
 });
 
 function renderGallery(category = "all") {
+  currentCategory = category;
+
   galleryGrid.innerHTML = "";
 
   const filteredItems =
@@ -79,27 +89,34 @@ function renderGallery(category = "all") {
       ? galleryItems
       : galleryItems.filter((item) => item.category === category);
 
-  filteredItems.forEach((item) => {
+  const itemsToShow = filteredItems.slice(0, visibleItems);
+
+  itemsToShow.forEach((item) => {
     const div = document.createElement("div");
     div.className = "gallery-item";
+
     if (item.type === "video") {
       div.innerHTML = `
-            <video controls>
-                <source
-                src="${item.src}"
-                type="video/mp4">
-            </video>
+                <video controls>
+                    <source src="${item.src}">
+                </video>
             `;
     } else {
       div.innerHTML = `
-            <img
-              src="${item.src}"
-              alt="${item.category}"
-              loading="lazy">
+                <img
+                  src="${item.src}"
+                  alt="${item.category}"
+                  loading="lazy">
             `;
     }
+
     galleryGrid.appendChild(div);
   });
+
+  const loadBtn = document.getElementById("loadMoreBtn");
+
+  loadBtn.style.display =
+    filteredItems.length > visibleItems ? "inline-block" : "none";
 }
 
 renderGallery();
@@ -113,9 +130,15 @@ galleryTabs.addEventListener("click", (e) => {
 
   e.target.classList.add("active");
 
+  visibleItems = 12;
+
   renderGallery(e.target.dataset.category);
 });
+document.getElementById("loadMoreBtn").addEventListener("click", () => {
+  visibleItems += ITEMS_PER_LOAD;
 
+  renderGallery(currentCategory);
+});
 // Scroll top
 const scrollTopBtn = document.getElementById("scrollTop");
 window.addEventListener(
