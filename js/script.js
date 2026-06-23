@@ -204,6 +204,7 @@ function animateCount(el) {
   const target = parseInt(el.dataset.target);
   const duration = 1800,
     step = 16;
+
   const inc = target / (duration / step);
   let cur = 0;
   const t = setInterval(() => {
