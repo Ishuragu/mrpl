@@ -1324,6 +1324,9 @@ section {
   font-size: 14px;
   color: var(--chrome);
   line-height: 1.7;
+  li {
+    list-style: none;
+  }
 }
 .contact-value a {
   color: var(--chrome);
