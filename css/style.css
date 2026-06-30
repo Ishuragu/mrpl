@@ -836,6 +836,11 @@ section {
 
 .gallery {
   background: var(--panel);
+  ul {
+    li {
+      list-style: none;
+    }
+  }
 }
 
 .gallery .section-body {

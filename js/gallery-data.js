@@ -41,22 +41,7 @@ const galleryItems = [
   },
   {
     category: "industry",
-    src: "assets/industry/industry-06.jpeg",
-    type: "image",
-  },
-  {
-    category: "industry",
     src: "assets/industry/industry-07.jpeg",
-    type: "image",
-  },
-  {
-    category: "industry",
-    src: "assets/industry/industry-08.jpeg",
-    type: "image",
-  },
-  {
-    category: "industry",
-    src: "assets/industry/industry-09.jpeg",
     type: "image",
   },
 
@@ -98,11 +83,6 @@ const galleryItems = [
   },
   {
     category: "machine",
-    src: "assets/machine/machine-08.jpeg",
-    type: "image",
-  },
-  {
-    category: "machine",
     src: "assets/machine/machine-09.jpeg",
     type: "image",
   },
@@ -114,18 +94,6 @@ const galleryItems = [
   {
     category: "machine",
     src: "assets/machine/machine-11.jpeg",
-    type: "image",
-  },
-
-  // PRODUCTS
-  {
-    category: "products",
-    src: "assets/products/products-01.jpeg",
-    type: "image",
-  },
-  {
-    category: "products",
-    src: "assets/products/products-02.jpeg",
     type: "image",
   },
 
