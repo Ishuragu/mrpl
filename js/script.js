@@ -292,6 +292,96 @@ const cardGroups = [
   { section: ".why", cards: ".why-item" },
 ];
 
+// ENQUIRY FORM
+// =============================
+
+const enquiryForm = document.getElementById("enquiryForm");
+
+if (enquiryForm) {
+  const submitBtn = document.getElementById("submitBtn");
+  const spinner = document.getElementById("spinner");
+  const msg = document.getElementById("msg");
+
+  // Change to your WhatsApp number
+  const whatsappNumber = "917305876029";
+
+  enquiryForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    spinner.style.display = "block";
+    msg.innerHTML = "";
+
+    const formData = {
+      name: document.getElementById("name").value.trim(),
+      company: document.getElementById("company").value.trim(),
+      phone: document.getElementById("phone").value.trim(),
+      email: document.getElementById("email").value.trim(),
+      city: document.getElementById("city").value.trim(),
+      productType: document.getElementById("productType").value,
+      message: document.getElementById("message").value.trim(),
+    };
+
+    try {
+      const response = await fetch("/.netlify/functions/send-email", {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      spinner.style.display = "none";
+      submitBtn.disabled = false;
+
+      if (result.success) {
+        msg.style.color = "green";
+        msg.innerHTML = "Enquiry sent successfully.";
+
+        const whatsappMessage = `New Enquiry
+
+Name : ${formData.name}
+
+Company : ${formData.company}
+
+Phone : ${formData.phone}
+
+Email : ${formData.email}
+
+City : ${formData.city}
+
+Product : ${formData.productType}
+
+Message :
+
+${formData.message}`;
+
+        window.open(
+          `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+          "_blank",
+        );
+
+        enquiryForm.reset();
+      } else {
+        msg.style.color = "red";
+        msg.innerHTML = result.message || "Unable to send enquiry.";
+      }
+    } catch (error) {
+      spinner.style.display = "none";
+      submitBtn.disabled = false;
+
+      msg.style.color = "red";
+      msg.innerHTML = "Something went wrong. Please try again.";
+
+      console.error(error);
+    }
+  });
+}
+
 // ── WHATSAPP ──
 function toggleWA(e) {
   e.preventDefault();

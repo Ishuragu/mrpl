@@ -1269,6 +1269,97 @@ section {
   line-height: 1.7;
 }
 
+/* ==== ENQUIRY ======*/
+/* Container */
+#enquiry {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+#enquiry h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+#enquiry input,
+#enquiry select,
+#enquiry textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+#enquiry input:focus,
+#enquiry select:focus,
+#enquiry textarea:focus {
+  border-color: #1a73e8;
+}
+
+/* Textarea */
+#enquiry textarea {
+  resize: none;
+}
+
+/* Button */
+#submitBtn {
+  width: 100%;
+  padding: 12px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#submitBtn:hover {
+  background: #1558b0;
+}
+
+#submitBtn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+#spinner {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Message */
+#msg {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  #enquiry {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+}
 /* ===== CONTACT ===== */
 .contact {
   background: var(--panel);
@@ -1393,6 +1484,88 @@ section {
   opacity: 0.4;
 }
 
+/* Container */
+enquiry {
+  width: 100%;
+  max-width: 100%;
+  padding: 40px 20px;
+  margin: 0;
+}
+
+/* Keep layout aligned with site container if you have one */
+#enquiry form {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Inputs match site style instead of box style */
+#enquiry input,
+#enquiry select,
+#enquiry textarea {
+  background: var(--navy);
+  border: 1px solid var(--border);
+  color: var(--dirty-white);
+  padding: 13px 16px;
+  font-family: "Barlow", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  resize: none;
+}
+
+/* Focus should match brand color (change if needed) */
+#enquiry input:focus,
+#enquiry select:focus,
+#enquiry textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#enquiry input::placeholder,
+#enquiry select::placeholder,
+#enquiry textarea::placeholder {
+  color: var(--silver);
+  opacity: 0.4;
+}
+
+/* Button should match existing button style */
+#enquiry #submitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: white;
+  padding: 14px 32px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: all 0.25s;
+  width: auto;
+}
+
+#submitBtn:hover {
+  opacity: 0.9;
+}
+
+/* Message */
+#msg {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Spinner */
+#spinner {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
 /* ===== FOOTER ===== */
 footer {
   background: var(--navy);
