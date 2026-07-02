@@ -28,6 +28,8 @@ exports.handler = async (event) => {
         pass: process.env.SMTP_PASS,
       },
     });
+    await transporter.verify();
+    console.log("SMTP connection verified");
 
     const mailOptions = {
       from: `"Mettalic Group Website" <${process.env.SMTP_USER}>`,
