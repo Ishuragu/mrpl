@@ -831,7 +831,6 @@ section {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* ===== GALLERY ====*/
 /* ===== GALLERY ===== */
 
 .gallery {
@@ -948,6 +947,205 @@ section {
     justify-content: center;
   }
 }
+
+/*==============================
+        Careers Section
+===============================*/
+.careers-section {
+  padding: 70px 0;
+  background: #f8fafc;
+  .career-card {
+    p {
+      padding: 10px 0;
+    }
+  }
+  .contact-card {
+    background: var(--navy);
+    border: 1px solid var(--border);
+    padding: 22px 26px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    transition: border-color 0.25s;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.careers-section .container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 0 20px;
+  .section-body {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.career-intro {
+  padding: 35px;
+}
+
+.career-intro p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.career-card {
+  padding: 35px 0 0 0;
+  h2 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--chrome-hi);
+  }
+}
+
+.career-card h3 {
+  position: relative;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--chrome-hi);
+}
+
+.career-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+
+  li {
+    font-size: 13px;
+    color: var(--silver);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    &::before {
+      content: "";
+      width: 16px;
+      height: 1px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+  }
+}
+
+.career-card ul li:last-child {
+  border-bottom: none;
+}
+
+.apply-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.apply-text {
+  margin: 15px 0 35px;
+  color: var(--silver);
+}
+
+.apply-box {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.apply-item {
+  flex: 1;
+  display: flex;
+  gap: 18px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  transition: 0.3s;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.apply-item:hover {
+  border-color: var(--border-hi);
+  transform: translateY(-4px);
+}
+
+.apply-icon {
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.apply-item span {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.apply-item a {
+  display: block;
+  color: var(--steel);
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.career-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0px 40px 0 40px;
+  border-radius: 15px;
+  color: #000;
+}
+
+.career-footer h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.career-footer p {
+  line-height: 1.9;
+  max-width: 800px;
+  margin: auto;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.career-footer h4 {
+  margin-top: 15px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .career-card,
+  .career-intro,
+  .career-footer {
+    padding: 25px;
+  }
+
+  .career-phone a {
+    display: block;
+    margin: 12px 0;
+  }
+
+  .career-email {
+    width: 100%;
+  }
+}
+
+/** ========= CAREERS ======== */
 /* ===== PROCESS ===== */
 .process {
   background: var(--navy);
@@ -2128,8 +2326,8 @@ footer {
 /* ===== SCROLL TOP ===== */
 .scroll-top {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
+  bottom: 100px;
+  right: 30px;
   z-index: 50;
   width: 48px;
   height: 48px;
@@ -2253,6 +2451,10 @@ footer {
   }
   .process-steps {
     grid-template-columns: 1fr 1fr;
+  }
+  .scroll-top {
+    bottom: 90px;
+    right: 20px;
   }
 }
 
